@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+
 // TODO: handle adding data to database
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
@@ -19,10 +20,14 @@ export default function Home() {
   };
 
   const handleSubmit = () => {
-    return fetch(`http://localhost:3000/api/review`, {
+    return fetch(`/api/review`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({value})
+    }).then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
     })
   };
 

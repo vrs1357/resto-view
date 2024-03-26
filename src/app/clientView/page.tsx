@@ -316,9 +316,6 @@ async function createBarChart(type: Number) {
         title: "Total Reviews over Time",
         hAxis: {
           title: "Total Population",
-          minValue: data7[0],
-          maxValue: data1[0],
-          ticks: [data1[0], data2[0], data3[0], data4[0], data5[0], data6[0], data7[0]],
         },
         colors: ['blue'],
       },
@@ -339,9 +336,6 @@ async function createBarChart(type: Number) {
         title: "Pos/Neg Reviews over Time",
         hAxis: {
           title: "Total Population",
-          minValue: data7[0],
-          maxValue: data1[0],
-          ticks: [data1[0], data2[0], data3[0], data4[0], data5[0], data6[0], data7[0]],
         },
         colors: ['green', 'red'],
       },
@@ -403,8 +397,8 @@ export default async function restaurantView() {
         </div>
 
         {/* HIGHLIGHTED ANALYTICS */}
-        <div className="flex flex-col mt-10">
-          <div className="px-5 w-full max-md:max-w-full">
+        <div className="flex flex-col mt-10 overflow-hidden">
+          <div className="flex px-5 w-full max-md:max-w-full">
             <div className="flex gap-5 max-md:flex-col max-md:gap-0">
               <div className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full drop-shadow-lg">
                 <div className="flex flex-col grow pt-6 mx-auto w-full bg-white rounded-xl shadow-sm max-md:mt-10 border-b-6 border-zinc-400">
@@ -426,7 +420,6 @@ export default async function restaurantView() {
                         src="https://cdn.builder.io/api/v1/image/assets/TEMP/f40c47ea288642368cc6a1a869b262f374f038755926a96abc18259cc836bd56?"
                         className="shrink self-stretch aspect-square w-[50px]"
                       />
-                      {/* TODO: replace number with correct value */}
                       <div className="self-stretch shrink my-auto mr-6">{Math.round(sadPPl*100/totalFeedback)}%</div>
                     </div>
                   </div>
@@ -492,7 +485,7 @@ export default async function restaurantView() {
         {/* MAIN ANALYTICS */}
         <div className="flex flex-col pb-3.5">
           <div className="w-full bg-blue-500 min-h-[7px] max-md:max-w-full" />
-          <div className="z-10 justify-center items-start px-5 py-6 w-full text-2xl font-semibold text-black whitespace-nowrap bg-blue-50 max-md:pr-5 max-md:max-w-full rounded-md">
+          <div className="justify-center items-start px-5 py-6 w-full text-2xl font-semibold text-black bg-blue-50 max-md:pr-5 max-md:max-w-full rounded-md">
             Analytics
           </div>
           <div className="justify-center items-center px-16 py-2 w-full text-lg font-semibold text-white bg-blue-900 rounded-xl max-md:px-5 max-md:max-w-full">
@@ -562,11 +555,10 @@ export default async function restaurantView() {
           </div>
           <div className="self-center mt-4 w-full max-w-[1020px] max-md:max-w-full">
             <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-              {/* TODO: d3.js Graphs GO HERE */}
-              <div className="align-left mr-10">
+              <div className="flex flex-col align-left mr-10 overflow-hidden">
                 {graph}
               </div>
-              <div className="align-right ml-10">
+              <div className="flex flex-col align-right ml-10 overflow-hidden">
                 {graph2}
               </div>
               

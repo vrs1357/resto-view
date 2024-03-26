@@ -1,8 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    basePath: "/resto-view",
-    output: "export",  // <=== enables static exports
+    // basePath: "/resto-view",                     // uncomment if using git pages or vercel to deploy project
+    output: 'export',
     reactStrictMode: true,
+    images: {
+        unoptimized: true
+    },
     async headers() {
         return [
             {
